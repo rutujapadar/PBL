@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Permissions for accessing images -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,20 +29,22 @@
 
         <activity
             android:name=".LoginActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:exported="false"/>
 
         <activity
             android:name=".SignupActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:exported="false"/>
 
         <activity android:name=".HomeActivity"
-            android:noHistory="true"
-            android:exported="true"/>
-
+            android:noHistory="true"/>
 
         <activity android:name=".ProfileActivity" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".DocsActivity" />
-
+        <activity
+            android:name=".ImageDisplayActivity"
+            android:exported="false" />
     </application>
 </manifest>
