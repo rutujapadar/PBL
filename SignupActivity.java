@@ -46,7 +46,7 @@ public class SignupActivity extends AppCompatActivity {
             // Simulate signup process
             new Handler().postDelayed(() -> {
                 progressDialog.dismiss();
-                startActivity(new Intent(SignupActivity.this, HomeActivity.class));
+                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                 finish();
             }, 1500);
         });
