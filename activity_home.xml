@@ -1,81 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+
     android:background="@android:color/white">
 
-    <!-- Toolbar with Logout Icon Button -->
+    <!-- Navbar with App Logo, Sign Out Icon, and Background Color -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_alignParentTop="true"
+        android:padding="10dp"
+        android:background="@color/material_dynamic_primary40"> <!-- Using dynamic primary color -->
 
-        <!-- Logout Icon Button -->
+        <!-- App Logo (centered on the left) -->
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/app_logo"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <!-- Signout Icon on the top right -->
         <ImageButton
             android:id="@+id/logout_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_signout"
-        />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            app:tint="@android:color/white" />
+
     </RelativeLayout>
 
-    <!-- Profile Button -->
-    <Button
-        android:id="@+id/profile_button"
+    <!-- Centered Buttons -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go to Profile"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:paddingVertical="12dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
         android:gravity="center"
-        android:drawableStart="@drawable/ic_profile"
-    />
+        android:layout_weight="1"
+        android:padding="16dp">
 
-    <!-- History Button -->
-    <Button
-        android:id="@+id/history_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View History"
-        android:backgroundTint="@android:color/holo_green_light"
-        android:textColor="@android:color/white"
-        android:paddingVertical="12dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:drawableStart="@drawable/ic_history"
-    />
+        <!-- Profile Button -->
+        <Button
+            android:id="@+id/profile_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to Profile"
+            android:backgroundTint="@color/material_dynamic_primary40"
+            />
 
-    <!-- Upload Photo Button -->
-    <Button
-        android:id="@+id/upload_photo_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Upload Photo"
-        android:backgroundTint="@android:color/holo_purple"
-        android:textColor="@android:color/white"
-        android:paddingVertical="12dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
+        <!-- History Button -->
+        <Button
+            android:id="@+id/history_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View History"
+            android:backgroundTint="@color/material_dynamic_secondary40" <!-- Dynamic secondary color -->
+         />
+
+        <!-- Upload Photo Button -->
+        <Button
+            android:id="@+id/upload_photo_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Photo"
+            android:backgroundTint="@color/material_dynamic_tertiary40" <!-- Dynamic tertiary color -->
         />
 
-    <!-- Docs Button -->
-    <Button
-        android:id="@+id/docs_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Docs"
-        android:backgroundTint="@android:color/holo_orange_light"
-        android:textColor="@android:color/white"
-        android:paddingVertical="12dp"
-        android:textSize="14sp"
-        android:gravity="center"
-        android:drawableStart="@drawable/ic_docs" />
+        <!-- Docs Button -->
+        <Button
+            android:id="@+id/docs_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Docs"
+            android:backgroundTint="@color/material_dynamic_tertiary50" <!-- Dynamic tertiary color -->
+       />
+
+    </LinearLayout>
 
 </LinearLayout>
