@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -18,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button uploadPhotoButton;
     private static final int REQUEST_STORAGE_PERMISSION = 100;
 
+    private ImageButton logoutButton;
     private final ActivityResultLauncher<String> imagePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.GetContent(),
             this::handleImageSelection
@@ -29,6 +31,14 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         uploadPhotoButton = findViewById(R.id.upload_photo_button);
         uploadPhotoButton.setOnClickListener(v -> checkStoragePermission());
+
+        logoutButton = findViewById(R.id.logout_button);
+        logoutButton.setOnClickListener(v -> {
+            // Navigate to the LoginActivity
+            Intent logoutIntent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Optionally finish HomeActivity to prevent going back
+        });
     }
 
     private void checkStoragePermission() {
