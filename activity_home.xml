@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:background="@android:color/white">
 
     <!-- Navbar with App Logo, Sign Out Icon, and Background Color -->
@@ -61,8 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View History"
-            android:backgroundTint="@color/material_dynamic_secondary40" <!-- Dynamic secondary color -->
-         />
+            android:backgroundTint="@color/material_dynamic_secondary40" />
 
         <!-- Upload Photo Button -->
         <Button
@@ -70,8 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Upload Photo"
-            android:backgroundTint="@color/material_dynamic_tertiary40" <!-- Dynamic tertiary color -->
-        />
+            android:backgroundTint="@color/material_dynamic_tertiary40" />
 
         <!-- Docs Button -->
         <Button
@@ -79,8 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View Docs"
-            android:backgroundTint="@color/material_dynamic_tertiary50" <!-- Dynamic tertiary color -->
-       />
+            android:backgroundTint="@color/material_dynamic_tertiary50" />
 
     </LinearLayout>
 
