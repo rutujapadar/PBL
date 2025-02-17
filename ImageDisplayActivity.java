@@ -5,16 +5,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.ImageView;
+import android.widget.TextView; // Import the TextView class
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
+
 import java.io.IOException;
 
 public class ImageDisplayActivity extends AppCompatActivity {
     private ImageView imageView;
+    private TextView extractedTextView; // Declare the TextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,7 @@ public class ImageDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_display);
 
         imageView = findViewById(R.id.image_view);
+        extractedTextView = findViewById(R.id.extracted_text_view); // Initialize the TextView
 
         // Get image URI from intent
         String imageUriString = getIntent().getStringExtra("imageUri");
@@ -42,14 +47,14 @@ public class ImageDisplayActivity extends AppCompatActivity {
     }
 
     private void extractText(Bitmap bitmap) {
-        TextRecognizer textRecognizer = TextRecognition.getClient();
+        TextRecognizer textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
         InputImage inputImage = InputImage.fromBitmap(bitmap, 0);
 
         textRecognizer.process(inputImage)
                 .addOnSuccessListener(visionText -> {
                     String extractedText = visionText.getText();
-                    Toast.makeText(this, "Extracted Text: " + extractedText, Toast.LENGTH_LONG).show();
-                    // Optionally, display the extracted text in a TextView
+                    // Update the TextView with the extracted text
+                    extractedTextView.setText(extractedText);
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Text recognition failed", Toast.LENGTH_SHORT).show();
