@@ -32,33 +32,55 @@
             app:tint="@android:color/white" />
     </RelativeLayout>
 
-    <!-- Image View -->
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:contentDescription="Image"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside" />
-
-    <!-- Extracted Text View -->
-    <TextView
-        android:id="@+id/extracted_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:textSize="16sp"
-        android:padding="8dp"
-        />
-
-    <!-- Chart for Visualizing Blood Report Data -->
-   
-
-    <!-- Spacer to push navigation to the bottom -->
-    <View
+    <!-- ScrollView to make the content scrollable -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Image View -->
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="Image"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside" />
+
+            <!-- Extracted Text View -->
+            <TextView
+                android:id="@+id/extracted_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="16sp"
+                android:padding="8dp"
+                 />
+
+            <!-- Bar Chart for Visualization -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="16dp" />
+
+            <!-- Analysis Result View -->
+            <TextView
+                android:id="@+id/analysisResultView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:text="Analysis results will appear here" />
+        </LinearLayout>
+    </ScrollView>
 
     <!-- Bottom Navigation Bar -->
     <LinearLayout
